@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Switch, Link } from 'react-router-dom';
 import axios from 'axios'; //library to make http requests
 import AddStudent from './addstudents';
-import DeleteStudent from './addstudents';
+import DeleteStudent from './deletestudents';
 
 function App() {
   const [message, setMessage] = useState('');
@@ -42,8 +42,8 @@ function App() {
         <div><p></p></div>
 
         <nav>
-          <Link to="/addstudents">Add Students</Link> | 
-          <Link to="/">Home</Link> 
+          <Link to="/addstudents">Add Students</Link> <br></br>
+          <Link to="/deletestudents">Delete Students</Link>
         </nav>
         <div><p></p></div>
 
@@ -53,6 +53,7 @@ function App() {
           } />
 
           <Route path="/addstudents" element={<AddStudent />} /> 
+          <Route path="/deletestudents" element={<DeleteStudent />} /> 
 
         </Routes>
       </div>

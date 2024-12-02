@@ -20,7 +20,7 @@ function AddStudent() {
 
       const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8080/api/students', student, {
+        axios.post('http://localhost:8080/api/addstudents', student, {
           headers: { 'Content-Type': 'application/json' }
         })
         .then(response => {
