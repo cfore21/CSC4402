@@ -26,8 +26,12 @@ public class MyService {
     public void deleteStudent(int id) {
         databaseService.deleteStudent(id);  
     }
-
+    //Add the getStudentsFromParent Method to find Parent's Children
     public List<Map<String, Object>> getStudentsFromParent(int guardianID){
         return databaseService.getStudentsFromParent(guardianID);
+    }
+    //Add the updateGuardianPhoneNumber method to update parents number
+    public void updateGuardianPhoneNumber(int guardianID, String newNumber){
+        databaseService.updateGuardianPhoneNumber(guardianID, newNumber);
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,6 +47,16 @@ public class Controller {
         } catch (Exception e) {
             return e.getMessage();
         }
+    }
+
+    @PutMapping("/{guardianID}/phone_number")
+    public String updateGuardianPhoneNumber(@PathVariable int guardianID, @RequestBody Map<String, String> requestBody) {
+        String newNumber = requestBody.get("phoneNumber");
+        if (newNumber == null || newNumber.isEmpty()) {
+            return "Phone number is required";
+        }
+        myService.updateGuardianPhoneNumber(guardianID, newNumber);
+        return "Phone number updated successfully.";
     }
 
     @DeleteMapping("/deletestudents/{id}")

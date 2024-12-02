@@ -83,4 +83,18 @@ public class DatabaseService {
         }
     }
 
+    public void updateGuardianPhoneNumber(int guardianID, String newNumber) {
+        String sql = "UPDATE Guardian SET phone_number = ? WHERE id = ?";
+
+        try {
+            jdbcTemplate.update(sql, newNumber, guardianID);
+            System.out.println("Updating phone number for Guardian ID: " + guardianID + " to " + newNumber);
+        }
+        catch (Exception e) {
+            System.err.println("Error updating phone number: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }
+
+
