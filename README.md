@@ -51,13 +51,10 @@ database. To create the schema and sample data for your database, you will need 
 ### Accessing the Database console
 
 - Once you have the frontend and backend running, open your web browser and go to [http://localhost:8080/h2-console](http://localhost:8080/h2-console) to access the database console (not required).
-- While not required, using the h2 console can be helpful for testing the structure and integrity of your database. You can also run example queries here.
-- The credentials to login to the h2 console should be as follows: url: `jdbc:h2:mem:example` username: `user` (and no password, so leave blank)
-- You can change the name of your database and the login credentials by changing the name (from example) in application properties.
+- The h2 console is used for testing the example queries.
+- The credentials to login to the h2 console should be as follows: url: `jdbc:h2:mem:highschool` username: `user` (and no password, so leave blank)
 
 ### Additional Notes
-
-- The SQL console execution feature is available on the frontend for testing pure SQL statements.
 - In order for the project to work, you must have both the frontend running on port 3000 and the backend running on port 8080.
   
 ## Usage
