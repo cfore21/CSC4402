@@ -1,8 +1,8 @@
-# Example 4402 Database Project
+# CSC4402 Database Project
 
 ## Introduction
 
-This project provides a starting point for your database project that has both a backend component (built with Spring Boot) and a frontend component (built with React).
+uses this template: https://github.com/sadief630/Example4402Project
 
 ## Prerequisites
 
