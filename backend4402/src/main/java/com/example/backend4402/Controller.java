@@ -1,5 +1,6 @@
 package com.example.backend4402;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -54,6 +55,18 @@ public class Controller {
             return "it worked";
         } catch (Exception e) {
             return e.getMessage();
+        }
+    }
+
+    @GetMapping("/students/parent/{guardianID}")
+    public List<Map<String, Object>> getStudentsFromParent(@PathVariable int guardianID){
+        try{
+            return myService.getStudentsFromParent(guardianID);
+        }
+        catch (Exception e){
+            System.err.println("Error: " +e.getMessage());
+            e.printStackTrace();
+            return Collections.emptyList();
         }
     }
 }

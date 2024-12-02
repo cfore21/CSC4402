@@ -26,4 +26,8 @@ public class MyService {
     public void deleteStudent(int id) {
         databaseService.deleteStudent(id);  
     }
+
+    public List<Map<String, Object>> getStudentsFromParent(int guardianID){
+        return databaseService.getStudentsFromParent(guardianID);
+    }
 }

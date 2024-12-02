@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Switch, Link } from 'react-rout
 import axios from 'axios'; //library to make http requests
 import AddStudent from './addstudents';
 import DeleteStudent from './deletestudents';
+import GetStudentsFromParent from './getStudentsFromParents';
 
 function App() {
   const [message, setMessage] = useState('');
@@ -43,7 +44,8 @@ function App() {
 
         <nav>
           <Link to="/addstudents">Add Students</Link> <br></br>
-          <Link to="/deletestudents">Delete Students</Link>
+          <Link to="/deletestudents">Delete Students</Link> <br></br>
+          <Link to="/getstudentsfromparent">Find Parent's Children</Link> <br></br>
         </nav>
         <div><p></p></div>
 
@@ -54,6 +56,7 @@ function App() {
 
           <Route path="/addstudents" element={<AddStudent />} /> 
           <Route path="/deletestudents" element={<DeleteStudent />} /> 
+          <Route path="/getstudentsfromparent" element={<GetStudentsFromParent />} /> 
 
         </Routes>
       </div>

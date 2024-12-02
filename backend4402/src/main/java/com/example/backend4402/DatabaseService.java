@@ -69,5 +69,18 @@ public class DatabaseService {
             e.printStackTrace();
         }
     }
+     //return all students belonging to a specific parent
+     public List<Map<String, Object>> getStudentsFromParent(int guardianID) {
+        List<Map<String, Object>> result = Collections.emptyList();
+        String sql = "SELECT s.* FROM Student s JOIN Parents p ON (s.id = p.student_id) WHERE p.guardian_id = ?";
+        try {
+            result = jdbcTemplate.queryForList(sql, guardianID);
+            return result;
+        } catch (Exception e) {
+            System.err.println("Error retrieving students: " + e.getMessage());
+            e.printStackTrace();
+            return result;
+        }
+    }
 
 }

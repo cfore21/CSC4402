@@ -65,7 +65,7 @@ CREATE TABLE Member(
     student_id INT,
     club_id INT,
     PRIMARY KEY (student_id, club_id),
-    FOREIGN KEY (student_id) REFERENCES Student(id) ON DELETE CASCADE,
+    FOREIGN KEY (student_id) REFERENCES Student(id),
     FOREIGN KEY (club_id) REFERENCES Club(id)
 );
 
@@ -75,7 +75,7 @@ CREATE TABLE Enrolled(
     attendance DECIMAL,
     grade CHAR(1),
     PRIMARY KEY (student_id, class_id),
-    FOREIGN KEY (student_id) REFERENCES Student(id) ON DELETE CASCADE,
+    FOREIGN KEY (student_id) REFERENCES Student(id),
     FOREIGN KEY (class_id) REFERENCES Class(id)
 );
 
@@ -83,6 +83,6 @@ CREATE TABLE Parents(
     student_id INT,
     guardian_id INT,
     PRIMARY KEY (student_id, guardian_id),
-    FOREIGN KEY (student_id) REFERENCES Student(id) ON DELETE CASCADE,
+    FOREIGN KEY (student_id) REFERENCES Student(id),
     FOREIGN KEY (guardian_id) REFERENCES Guardian(id)
 );
