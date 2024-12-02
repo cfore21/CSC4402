@@ -37,7 +37,7 @@ public class Controller {
     // set, update, get , etc. statements that are relevant to your database.
 
     //adding students
-    @PostMapping("/students")
+    @PostMapping("/addstudents")
     public String addStudent(@RequestBody Map<String, Object> student) {
         try {
             myService.addStudent(student);  
@@ -47,7 +47,7 @@ public class Controller {
         }
     }
 
-    @DeleteMapping("/students/{id}")
+    @DeleteMapping("/deletestudents/{id}")
     public String deleteStudent(@PathVariable int id) {
         try {
             myService.deleteStudent(id);  

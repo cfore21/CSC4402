@@ -48,9 +48,9 @@ VALUES
 
 INSERT INTO Student(id, name, dateofbirth, schoolyear, email, GPA, address)
 VALUES
-(01, 'Arthur Morgan', '2007-01-01', 8, 'amorgan1@example.com', 3.4, '456 Parkway Dr.'),
-(02, 'Alice White', '2009-03-25', 6, 'awhite1@example.com', 3.5, '190 Tower Dr.'),
-(03, 'Bob Fisher', '2008-04-10', 6, 'bfisher1@example.com', 3.6, '191 Sycamore Dr.');
+(01, 'Arthur Morgan', '2007-01-01', 10, 'amorgan1@example.com', 3.4, '456 Parkway Dr.'),
+(02, 'Alice White', '2009-03-25', 11, 'awhite1@example.com', 3.5, '190 Tower Dr.'),
+(03, 'Bob Fisher', '2008-04-10', 11, 'bfisher1@example.com', 3.6, '191 Sycamore Dr.');
 
 INSERT INTO Guardian(id, name, phone_number, email, address)
 VALUES
