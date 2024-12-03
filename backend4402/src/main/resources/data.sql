@@ -70,7 +70,7 @@ VALUES
 (12, 12, 3, 'Greek', 'Fall', 111),
 (13, 13, 3, 'Religion', 'Fall', 112),
 (14, 14, 3, 'Algebra', 'Fall', 113),
-(15, 15, 3, 'Calculus', 'Fall', 114);
+(15, 15, 3, 'Literature', 'Fall', 114);
 
 
 INSERT INTO Student(id, name, dateofbirth, schoolyear, email, GPA, address)
