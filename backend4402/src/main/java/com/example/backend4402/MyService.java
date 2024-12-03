@@ -34,4 +34,8 @@ public class MyService {
     public void updateGuardianPhoneNumber(int guardianID, String newNumber){
         databaseService.updateGuardianPhoneNumber(guardianID, newNumber);
     }
+
+    public void updateClub(int id, Map<String, Object> club) {
+        databaseService.updateClub(id, club);  
+    }
 }

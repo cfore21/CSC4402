@@ -1,5 +1,6 @@
 package com.example.backend4402;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -80,6 +81,44 @@ public class DatabaseService {
             System.err.println("Error retrieving students: " + e.getMessage());
             e.printStackTrace();
             return result;
+        }
+    }
+
+    
+	    public void updateClub(int id, Map<String, Object> club) {
+        String sql = "UPDATE Club SET ";
+        List<Object> params = new ArrayList<>();
+        
+        try {
+            System.out.println("data being sent is: " + club);
+
+            
+            if(club.containsKey("name")){
+                sql += "name = ?, ";
+                params.add(club.get("name"));
+            }
+            if(club.containsKey("schedule")){
+                sql += "schedule = ?, ";
+                params.add(club.get("schedule"));
+            }
+            if(club.containsKey("teacher_id")){
+                sql += "teacher_id = ?, ";
+                params.add(club.get("teacher_id"));
+            }
+
+            sql = sql.substring(0,sql.length()-2);
+            sql += (" WHERE id = ?");
+            params.add(id);
+
+
+            jdbcTemplate.update(sql, params.toArray());
+
+            
+            
+            System.out.println("update successful");
+        } catch (Exception e) {
+            System.err.println("error" + e.getMessage());
+            e.printStackTrace();
         }
     }
 
