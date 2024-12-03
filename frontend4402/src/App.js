@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import axios from 'axios'; //library to make http requests
 import AddStudent from './addstudents';
 import DeleteStudent from './deletestudents';
 import GetStudentsFromParent from './getStudentsFromParents';
 import UpdateGuardianPhoneNumber from './UpdateGuardianPhone';
+import UpdateClub from './updateclubs';
 
 function App() {
   const [message, setMessage] = useState('');
-  const [sql, setSql] = useState('');
-  const [result, setResult] = useState([]); // State to store the API response
 
   useEffect(() => {
     // API call to http://localhost:8080/api/hello
@@ -20,34 +19,20 @@ function App() {
                                     'run the main class in Example4402Application.'));
 }, []);
 
-// API call to http://localhost:8080/api/sql 
-  const handleExecuteSQL = () => {
-    axios.post('http://localhost:8080/api/sql', { sql: sql }) // sql is the argument accepted by the backend
-      .then((response) => {
-        setResult(response.data);
-      })
-      .catch((error) => {
-        console.error('Error executing SQL statement:', error);
-        setResult([]);
-      });
-  };
-
-  const handleSQLChange = (e) => {
-    setSql(e.target.value);
-  };
-
    return (
     <Router>
       <div style={containerStyle}>
-        <h1>High School Database</h1>
+        <h1>Example High Database</h1>
         <div style={example}>{message}</div>
         <div><p></p></div>
 
         <nav>
+          <p>Actions:</p>
           <Link to="/addstudents">Add Students</Link> <br></br>
           <Link to="/deletestudents">Delete Students</Link> <br></br>
           <Link to="/getstudentsfromparent">Find Parent's Children</Link> <br></br>
           <Link to="/updateparentphonenumber">Update Parent's Phone Number</Link> <br></br>
+          <Link to="/updateclubs">Update Club Information</Link> <br></br>
         </nav>
         <div><p></p></div>
 
@@ -60,6 +45,7 @@ function App() {
           <Route path="/deletestudents" element={<DeleteStudent />} /> 
           <Route path="/getstudentsfromparent" element={<GetStudentsFromParent />} /> 
           <Route path="/updateparentphonenumber" element={<UpdateGuardianPhoneNumber />} /> 
+          <Route path="/updateclubs" element={<UpdateClub />} />
 
         </Routes>
       </div>
