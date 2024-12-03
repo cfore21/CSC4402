@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")  
 @RequestMapping("/api") //this will be the route where we make HTTP requests.
 public class Controller {
     private final MyService myService;
@@ -60,6 +62,7 @@ public class Controller {
         return "Phone number updated successfully.";
     }
 
+    //deleting
     @DeleteMapping("/deletestudents/{id}")
     public String deleteStudent(@PathVariable int id) {
         try {
@@ -82,12 +85,24 @@ public class Controller {
         }
     }
 
+    //geting list of clubs
+    @GetMapping("/clubs")
+    public List<Map<String, Object>> getAllClubs() {
+        try {
+            return myService.getClubs();  
+        } catch (Exception e) {
+            System.err.println("Error fetching clubs: " + e.getMessage());
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
+    }
+
     //updating clubs
     @PatchMapping("/updateclubs/{id}")
     public String updateClub(@PathVariable int id, @RequestBody Map<String, Object> club) {
         try {
             myService.updateClub(id, club);  
-            return "it worked";
+            return "updating clubs success";
         } catch (Exception e) {
             return e.getMessage();
         }

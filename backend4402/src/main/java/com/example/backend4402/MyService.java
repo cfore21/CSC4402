@@ -38,4 +38,8 @@ public class MyService {
     public void updateClub(int id, Map<String, Object> club) {
         databaseService.updateClub(id, club);  
     }
+
+    public List<Map<String, Object>>getClubs(){
+        return databaseService.getClubs();
+    }
 }

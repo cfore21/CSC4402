@@ -83,6 +83,17 @@ public class DatabaseService {
             return result;
         }
     }
+    public List<Map<String, Object>> getClubs() {
+        List<Map<String, Object>> result = Collections.emptyList();
+        String sql = "SELECT c.id, c.name AS club_name, c.schedule, c.teacher_id, t.name AS teacher_name " +
+        "FROM Club c " +
+        "JOIN Teacher t ON c.teacher_id = t.id";; 
+        
+        result = jdbcTemplate.queryForList(sql);
+        System.out.print("club list " + result);
+        return result;
+        
+    }
 
     
 	    public void updateClub(int id, Map<String, Object> club) {
@@ -92,19 +103,32 @@ public class DatabaseService {
         try {
             System.out.println("data being sent is: " + club);
 
-            
-            if(club.containsKey("name")){
-                sql += "name = ?, ";
-                params.add(club.get("name"));
-            }
-            if(club.containsKey("schedule")){
-                sql += "schedule = ?, ";
-                params.add(club.get("schedule"));
-            }
-            if(club.containsKey("teacher_id")){
-                sql += "teacher_id = ?, ";
-                params.add(club.get("teacher_id"));
-            }
+                
+              
+        if (club.containsKey("name") && club.get("name") != null && 
+            !club.get("name").toString().trim().equals("")) 
+        {
+            sql += "name = ?, ";  
+            params.add(club.get("name"));  
+        }
+
+        
+        if (club.containsKey("schedule") && club.get("schedule") != null && 
+            !club.get("schedule").toString().trim().equals("")) 
+        {
+            sql += "schedule = ?, "; 
+            params.add(club.get("schedule"));  
+        }
+
+        
+        if (club.containsKey("teacher_id") && club.get("teacher_id") != null && 
+            !club.get("teacher_id").toString().trim().equals("") && 
+            !club.get("teacher_id").toString().equals(" ")) 
+        {
+
+            sql += "teacher_id = ?, ";  
+            params.add(club.get("teacher_id"));  
+        }
 
             sql = sql.substring(0,sql.length()-2);
             sql += (" WHERE id = ?");
@@ -112,10 +136,8 @@ public class DatabaseService {
 
 
             jdbcTemplate.update(sql, params.toArray());
-
-            
-            
             System.out.println("update successful");
+
         } catch (Exception e) {
             System.err.println("error" + e.getMessage());
             e.printStackTrace();
