@@ -64,4 +64,4 @@ database. To create the schema and sample data for your database, you will need 
 ## Authors
 
 - Example project for class created by Sadie Forbes
-- {TEAM MEMBERS NAMES GO HERE}
+- Cathleen Foret, Grant Candies, Robert Breaux, Cole Collins, Halle Vu 
