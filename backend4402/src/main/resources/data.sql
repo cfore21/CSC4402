@@ -128,7 +128,7 @@ INSERT INTO Enrolled (student_id, class_id, attendance, grade) VALUES
 
 INSERT INTO Parents (student_id, guardian_id) VALUES
 (1, 1),
-(2, 2),
+(2, 1),
 (3, 3),
 (4, 4),
 (5, 5),
