@@ -70,7 +70,7 @@ VALUES
 (12, 12, 3, 'Greek', 'Fall', 111),
 (13, 13, 3, 'Religion', 'Fall', 112),
 (14, 14, 3, 'Algebra', 'Fall', 113),
-(15, 15, 3, 'Calculus', 'Fall', 114);
+(15, 15, 3, 'Literature', 'Fall', 114);
 
 
 INSERT INTO Student(id, name, dateofbirth, schoolyear, email, GPA, address)
@@ -128,7 +128,7 @@ INSERT INTO Enrolled (student_id, class_id, attendance, grade) VALUES
 
 INSERT INTO Parents (student_id, guardian_id) VALUES
 (1, 1),
-(2, 2),
+(2, 1),
 (3, 3),
 (4, 4),
 (5, 5),
